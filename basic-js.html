@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Basic</h2>
+
+<p id="demo"></p>
+
+<script>
+
+  //TYPE CONVERSION
+  let y = 12;
+  document.getElementById("demo").innerHTML =
+  y.toString() + "<br>" +
+   (13).toString() + "<br>" +
+   (10 + 23).toString();
+ 
+ 
+  // TYPE COERCION
+  const v1='2';
+  const v2= 3;
+  let sum = v1+v2;
+  console.log(sum);
+  document.write(sum);
+</script>
+
+</body>
+</html>
+
+<!-- TRUTHY Values 
+if (true)
+if ({})
+if ([])
+if (42)
+if ("0")
+if ("false")
+if (new Date())
+if (-42)
+if (12n)
+if (3.14)
+if (-3.14)
+if (Infinity)
+if (-Infinity) -->
+
+
+<!-- FALSY Values
+if (false) {}
+if (null) {}
+if (undefined) {}
+if (0) {}
+if (-0) {}
+if (0n) {}
+if (NaN) {}
+if ("") {} -->
+
+

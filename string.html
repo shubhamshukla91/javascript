@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+<body>
+<script>
+// 1. 
+var str = "Love is the best thing in this world. Some found their love and some are still looking for their love.";
+console.log(str.split('love').length);
+
+// 2. 
+var str1 = 'You cannot end a sentence with because because because is a conjunction.';
+console.log((str1.match(/because/g) || []).length);
+
+// 3.
+var sentence = 'There is nothing &as& mo&re rewarding as educa&ting &and& empo&wering people.'
+str = sentence.replace(/&/g,"");
+console.log(str);
+
+// 4. 
+const str2 = 'He earns 5000 euro from salary per month, 10000 euro annual bonus, 15000 euro online courses per month.';
+const arr  = str2.match(/\d+/g);
+const Income = (+arr[0] + +arr[2]) * 12 + +arr[1];
+console.log(Income);    
+
+// Extracting String Parts
+// There are 3 methods for extracting a part of a string:
+
+// slice(start, end)
+// substring(start, end)
+// substr(start, length)
+
+let string = "Apple, Banana, Kiwi";
+let part = string.substring(7, 13);
+console.log(part);
+let part1 = string.substr(15, 6);
+console.log(part1);
+let part2 = part.concat(" ", part1);
+console.log(part2);
+
+let char = string.charAt(0);
+let char2 = string.charCodeAt(0);
+console.log(char,char2)
+
+let char3 = string.split(",");
+console.log(char3);
+
+</script>
+</body>
+</html>
