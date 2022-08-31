@@ -77,7 +77,6 @@ console.log(fun(2,1)); // 3
 console.log(fun(2)); // 3
 
 
-//classes
 // classes in ES6
 class Vehicle{
 	constructor(name,engine){
@@ -105,5 +104,20 @@ function fun(...input){
 console.log(fun(1,2)); // 3
 console.log(fun(1,2,3)); // 6
 console.log(fun(1,2,3,4,5)); // 15
+
+
+//es6 spread parameter
+function sum(x, y, z) {
+  return x + y + z;
+}
+
+const numbers = [1, 2, 3];
+
+console.log(sum(...numbers));
+// expected output: 6
+
+console.log(sum.apply(null, numbers));
+// expected output: 6
+
 
 
