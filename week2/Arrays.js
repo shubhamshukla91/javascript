@@ -1,9 +1,9 @@
-//forEach
+//1 forEach
 const array = ['a', 'b', 'c'];
 
 array1.forEach(element => console.log(element));
 
-//fill
+//2 fill
 
 const array1 = [1, 2, 3, 4];
 
@@ -19,7 +19,7 @@ console.log(array1.fill(6));
 // expected output: [6, 6, 6, 6]
 
 
-//group
+//3 group
 
 const inventory = [
     { name: 'asparagus', type: 'vegetables', quantity: 5 },
@@ -37,7 +37,7 @@ function myCallback({ quantity }) {
   
   result = inventory.group(myCallback);
 
-//indexOf
+//4 indexOf
 
 const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
 
@@ -53,7 +53,7 @@ console.log(beasts.indexOf('giraffe'));
 
 
 
-//push&pop
+//5 push&pop
 
 const plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
 
@@ -62,7 +62,7 @@ console.log(plants.push(brinjal));
 console.log(plants.pop());
 
 
-//shift & sort
+//6 shift & sort
 
 const array2 = [11, 5, 8, 2, 3];
 
@@ -77,7 +77,7 @@ console.log(array2.sort());
 
 const array3 = [1, 4, 9, 16];
 
-// map filter reduce
+//7  map filter reduce
 const arr = [5, 6, 13, 0, 1, 18, 23];
 
 const sum = arr.reduce((a, b) => a + b);
@@ -111,3 +111,53 @@ const sumWithInitial = array4.reduce(
 );
 
 console.log(sumWithInitial);
+
+
+//8 find
+const array5 = [5, 12, 8, 130, 44];
+
+const found = array5.find(element => element > 10);
+
+console.log(found);
+// expected output: 12
+
+
+//9 slice and splice
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2));
+// expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.slice(2, 4));
+// expected output: Array ["camel", "duck"]
+
+console.log(animals.slice(1, 5));
+// expected output: Array ["bison", "camel", "duck", "elephant"]
+
+console.log(animals.slice(-2));
+// expected output: Array ["duck", "elephant"]
+
+console.log(animals.slice(2, -1));
+// expected output: Array ["camel", "duck"]
+
+console.log(animals.slice());
+// expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
+
+//10 join
+const elements = ['Fire', 'Air', 'Water'];
+
+console.log(elements.join());
+// expected output: "Fire,Air,Water"
+
+console.log(elements.join(''));
+// expected output: "FireAirWater"
+
+console.log(elements.join('-'));
+// expected output: "Fire-Air-Water"
+
+
+//11 include
+const array6 = [1, 2, 3];
+
+console.log(array6.includes(2));
+// expected output: true

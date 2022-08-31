@@ -1,4 +1,4 @@
-//arrow functions
+//1 arrow functions
 
 const materials = [
     'Hydrogen',
@@ -20,3 +20,90 @@ const even = arr.filter((v) => v % 2 === 0);
 
 const double = arr.map((v) => v * 2);
 // [10, 12, 26, 0, 2, 36, 46]
+
+
+// ES6 Arrow function
+const myFunc= name =>{ return `Hi ${name}`;
+} 
+console.log(myFunc('Shubham'))// output: Hi Said
+// or even without using arrow or implement return keyword 
+const myFunc1= name => `Hi ${name}`;
+console.log(myFunc1('Shubham')) // output: Hi Said
+
+//template literal
+// ES5
+var name = 'shubham';
+console.log('My name is '+ name);
+
+// ES6
+const name1 = 'shubham';
+console.log(`My name is ${name1}`);
+
+//Object and Array Destructing
+const college = {
+	name : 'DTU',
+	established : '1941',
+	isPrivate : false
+};
+// es5
+// let name = college.name;
+// let established = college.established;
+// let isPrivate = college.isPrivate;
+
+//es6
+let{name,established,isPrivate} = college;
+
+
+console.log(name); // DTU
+console.log(established); // 1941
+console.log(isPrivate); // false
+
+const arr1 = ['lionel','messi','barcelona'];
+  
+let[value1,value2,value3] = arr1;
+  
+console.log(value1); // lionel
+console.log(value2); // messi
+console.log(value3); // barcelona
+
+
+//default
+// ES6
+function fun(a,b=1){
+	return a + b;
+}
+
+console.log(fun(2,1)); // 3
+console.log(fun(2)); // 3
+
+
+//classes
+// classes in ES6
+class Vehicle{
+	constructor(name,engine){
+		this.name = name;
+		this.engine = engine;
+	}
+}
+
+const bike1 = new Vehicle('Ninja ZX-10R','998cc');
+const bike2 = new Vehicle('Duke','390cc');
+
+console.log(bike1.name); // Ninja ZX-10R
+console.log(bike2.name); // Duke
+
+
+// ES6 rest parameter
+function fun(...input){
+	let sum = 0;
+	for(let i of input){
+		sum+=i;
+	}
+	return sum;
+}
+
+console.log(fun(1,2)); // 3
+console.log(fun(1,2,3)); // 6
+console.log(fun(1,2,3,4,5)); // 15
+
+
