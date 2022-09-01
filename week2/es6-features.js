@@ -120,4 +120,50 @@ console.log(sum.apply(null, numbers));
 // expected output: 6
 
 
+//export
+// module "my-module.js"
+function cube(x) {
+	return x * x * x;
+  }
+  
+  const foo = Math.PI + Math.SQRT2;
+  
+  const graph = {
+	options: {
+	  color: 'white',
+	  thickness: '2px',
+	},
+	draw() {
+	  console.log('From graph draw function');
+	}
+  };
+  
+  export { cube, foo, graph };
 
+  
+  //import
+  // getPrimes.js
+/**
+ * Returns a list of prime numbers that are smaller than `max`.
+ */
+function getPrimes(max) {
+	const isPrime = Array.from({ length: max }, () => true);
+	isPrime[0] = isPrime[1] = false;
+	isPrime[2] = true;
+	for (let i = 2; i * i < max; i++) {
+	  if (isPrime[i]) {
+		for (let j = i ** 2; j < max; j += i) {
+		  isPrime[j] = false;
+		}
+	  }
+	}
+	return [...isPrime.entries()]
+	  .filter(([, isPrime]) => isPrime)
+	  .map(([number]) => number);
+  }
+
+  
+  import { getPrimes } from '/modules/getPrimes.js';
+
+  console.log(getPrimes(10)); // [2, 3, 5, 7]
+	
