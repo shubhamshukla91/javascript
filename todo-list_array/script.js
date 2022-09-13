@@ -1,5 +1,5 @@
 const text = document.getElementById("add-input");
-const searchText = document.getElementById("search-input");
+// const searchText = document.getElementById("search-input");
 const addTaskButton = document.getElementById("add-task-btn");
 const saveTaskButton = document.getElementById("save-todo-btn");
 const listBox = document.getElementById("listBox");
@@ -36,7 +36,7 @@ function displayTodo(array) {
   listBox.innerHTML = htmlCode;
  }  
 
-searchText.addEventListener("keyup", ({target}) => {
+text.addEventListener("keyup", ({target}) => {
   filteredArray = todoArray.filter((item) => {
     return item.includes(target.value);
   });
