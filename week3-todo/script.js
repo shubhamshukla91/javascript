@@ -24,7 +24,7 @@
   
   // Add todo item function
   function addTodo(e) {
-      if (todoInput.value !== '') {
+      if(!todoInput.value) {
           // Create li element
           const li = document.createElement('li');
           // Add class
