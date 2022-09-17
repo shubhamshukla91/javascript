@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+<header class="m-auto mt-8 text-center">
+    <h1 class="text-3xl md:text-4xl text-gray-600 font-medium mb-2">Hello and Wellcome @All Users</h1>
+</header>
+<div class="flex justify-evenly grid grid-flow-row-dense grid-cols-6 grid-rows-6 " id="container">
+</div>
+<footer>
+    <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center fixed bottom-20 right-8" onclick="createUser()">
+        <span>Add new User</span>
+    </button>
+    <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center fixed bottom-8 right-8" onclick="logout()">
+        <span>Log out</span>
+    </button>
+</footer>
+
+<script src="./app.js"></script>
+    
+</body>
+</html>
