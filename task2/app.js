@@ -108,8 +108,8 @@ function saveDetails() {
           console.log(ele.name);
           return (block.innerHTML = `<div class="max-w-2xl rounded overflow-hidden shadow-lg mt-20 ml-6">
                       <h2 class="m-auto text-center text-2xl font-bold text-gray-500">${ele.name}</h2>
-                      <h3 class="m-auto text-center text-xl font-medium mt-8">${ele.Usrjob}</h3>
-                      <h3 class="m-auto text-center text-xl font-medium mt-8">${ele.Usrid}</h3>
+                      <h3 class="m-auto text-center text-xl font-medium mt-8">${ele.userJob}</h3>
+                      <h3 class="m-auto text-center text-xl font-medium mt-8">${ele.userId}</h3>
                       </div>`);
         });
         container.innerHTML = display;
