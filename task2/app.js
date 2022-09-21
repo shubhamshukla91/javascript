@@ -11,6 +11,7 @@ const url = "https://reqres.in/api/users";
 let usersloggedin = [];
 
 try {
+<<<<<<< HEAD
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
@@ -22,8 +23,18 @@ try {
           email: values.email,
           img: values.avatar,
         
+=======
+    fetch(url)
+      .then((res) => res.json())
+      .then(({ data }) => data.map(({ first_name, email, avatar }) => {
+          return usersloggedin.push({
+            name: first_name,
+            email: email,
+            img: avatar,
+          });
+>>>>>>> 4da6ccdd5be281561640c7a5059876c23c3d2581
         });
-      });
+}
       const block = document.createElement("div");
       let display = usersloggedin.map((ele) => {
         // console.log(ele.name);
@@ -49,7 +60,7 @@ try {
 //   try {
 //     const container = document.getElementById("container");
 //     const url = "https://reqres.in/api/users";
-//     let usersloggedin = new Array();
+//     let usersloggedin = [];
 //     const resp = await fetch(url);
 //     const data = await resp.json();
 //     const users = await data;
@@ -79,50 +90,45 @@ try {
 
 function saveDetails() {
   var name = document.getElementById("username").value;
-  var Usrjob = document.getElementById("job").value;
-  var Usrid = document.getElementById("email").value;
+  var userJob = document.getElementById("job").value;
+  var userId = document.getElementById("email").value;
 
-  if (name.length == 0 || Usrjob.length == 0 || Usrid.length == 0) {
+  if (name.length == 0 || userJob.length == 0 || userId.length == 0) {
     window.location.href = "./createUser.html";
     alert("please mention details properly!");
   } else {
     const url = "https://reqres.in/api/users";
-    let usersloggedin = new Array();
+    let usersloggedin = [];
     fetch(url, {
       method: "POST",
       body: JSON.stringify({
         name: name,
-        job: Usrjob,
-        email: Usrid,
+        job: userJob,
+        email: userId,
       }),
       headers: { "Content-type": "application/json;charset=utf-8" },
     })
       .then((res) => res.json())
-      .then((data) => {
-        let persons = data;
-        // console.log(persons.data)
-        persons.data.map((values) => {
-          usersloggedin.push({
-            name: values.name,
-            job: values.Usrjob,
-            email: values.Usrid,
-          });
-        });
-        console.log(usersloggedin);
+      .then(({ data }) => data.map(({ name, userJob, userId }) => {
+          return usersloggedin.push({
+            name: name,
+            job: userJob,
+            email: userId,
+          })
+        })
+        .catch((err) => console.log(err.message))
         const block = document.createElement("div");
         let display = usersloggedin.map((ele) => {
           console.log(ele.name);
           return (block.innerHTML = `<div class="max-w-2xl rounded overflow-hidden shadow-lg mt-20 ml-6">
                       <h2 class="m-auto text-center text-2xl font-bold text-gray-500">${ele.name}</h2>
-                      <h3 class="m-auto text-center text-xl font-medium mt-8">${ele.Usrjob}</h3>
-                      <h3 class="m-auto text-center text-xl font-medium mt-8">${ele.Usrid}</h3>
+                      <h3 class="m-auto text-center text-xl font-medium mt-8">${ele.userJob}</h3>
+                      <h3 class="m-auto text-center text-xl font-medium mt-8">${ele.userId}</h3>
                       </div>`);
         });
         container.innerHTML = display;
       })
-      // console.log(data)
-      .catch((err) => console.log(err.message));
     window.location.href = "./dashboard.html";
     alert("Yours provided details have been recorded.");
-  }
+  
 }

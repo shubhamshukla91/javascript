@@ -9,7 +9,7 @@ let todoArray = [];
 
 
 addTaskButton.addEventListener("click", (e) => {
-  if ((!text.value)== '') {
+  if (!text.value) {
     if(todoArray.includes(text.value)){
       return displayTodo(filteredArray);
     }else{
