@@ -8,7 +8,7 @@ function logout() {
 
 const container = document.getElementById("container");
 const url = "https://reqres.in/api/users";
-let usersloggedin = new Array();
+let usersloggedin = [];
 
 try {
   fetch(url)
@@ -21,6 +21,7 @@ try {
           name: values.first_name,
           email: values.email,
           img: values.avatar,
+        
         });
       });
       const block = document.createElement("div");

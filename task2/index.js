@@ -10,7 +10,7 @@ function storeDetails(){
         window.location.reload(true)
         window.location.replace("./index.html")
         alert("please fill in email & password correctly i.e., password must be of atleast 8 characters long including uppercase,lowercase letter and 1 number");
-        return
+        
        
     }else{
         localStorage.setItem("name", name);
