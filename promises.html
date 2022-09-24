@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container"></div>
+    <button class="btn">click me</button>
+    <script>
+      var nums = [1, 2, 3];
+      // create array of squares using a function definition
+      var squareFunc = function squareFunc(x) {
+        return x * x;
+      };
+      var squares0 = nums.map(squareFunc);
+      // create array of squares using an anonymous function
+      var squares1 = nums.map(function (x) {
+        return x * x;
+      });
+      // create array of squares using an arrow function
+      var squares2 = nums.map((x) => x * x);
+
+      console.log(squares0, squares1, squares2);
+
+      //callback functions
+      let students = [
+        {
+          id: "01",
+          name: { fname: "shubham", lname: "shukla" },
+          college: "glau",
+        },
+        {
+          id: "02",
+          name: { fname: "shubhanshu", lname: "shukla" },
+          college: "glau",
+        },
+      ];
+      function displayStudent() {
+        setTimeout(() => {
+          // let result='';
+          students.forEach((data, index) => {
+            // result+= `<li>${data.name.fname}</li>`;
+            console.log(data.name.fname);
+          });
+          // document.body.innerHTML=result;
+        }, 1000);
+      }
+      // displayStudent();
+
+      // function addStudent(newStudent) {
+      //     setTimeout(() => {
+      //         students.push(newStudent);
+      //     },2000);
+      // }
+      // addStudent({id:'03',fname:'shivam',lname:'tiwari',college:'glau'});
+
+      // function addStudent(newStudent,callback) {
+      //     setTimeout(() => {
+      //         students.push(newStudent);
+      //         callback();
+      //     },2000);
+      // }
+      // addStudent({id:'03',fname:'shivam',lname:'tiwari',college:'glau'},displayStudent);
+
+      function makeUppercase(value) {
+        console.log(value.toUpperCase());
+      }
+      // makeUppercase('shubham')
+
+      function reverseString(value) {
+        console.log(value.split("").reverse().join(""));
+      }
+
+      function handleName(name, cb) {
+        const fullName = `${name} shukla`;
+        //console.log(fullName)
+        cb(fullName);
+      }
+
+      handleName("shubham", makeUppercase);
+      handleName("shubham", reverseString);
+
+      const btn = document.querySelector(".btn");
+
+      // btn.addEventListener('click', function () {
+      //   console.log('hello world')
+      // })
+
+      btn.addEventListener("click", sayHello);
+      function sayHello() {
+        console.log("hello people");
+      }
+
+      //promise
+      function addStudent(newStudent) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            students.push(newStudent);
+            let error = false;
+            if (!error) {
+              resolve();
+            } else {
+              reject("something went wrong");
+            }
+          }, 2000);
+        });
+      }
+      addStudent({
+        id: "03",
+        name: { fname: "shivam", lname: "tiwari" },
+        college: "glau",
+      })
+        .then(displayStudent)
+        .catch((err) => console.log(err));
+
+      //promise example2
+      const value = 2;
+
+      const promise = new Promise((resolve, reject) => {
+        const random = Math.floor(Math.random() * 3);
+        console.log(random);
+        if (random === value) {
+          resolve("you guessed correctly");
+        } else {
+          reject("wrong number");
+        }
+      });
+
+      console.log(promise);
+
+      promise
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
+
+      // async / await
+      // async must be present, always returns a promise
+      // await waits till promise is settled
+      // error handling - try/catch block
+
+      // const example = async () => {
+      //   return 'hello there'
+      // }
+
+      // async function someFunc() {
+      //   const result = await example()
+      //   console.log(result)
+      //   console.log('hello world')
+      // }
+
+      const users = [
+        { id: 1, name: "john" },
+        { id: 2, name: "susan" },
+        { id: 3, name: "anna" },
+      ];
+
+      const articles = [
+        { userId: 1, articles: ["one", "two", "three"] },
+        { userId: 2, articles: ["four", "five"] },
+        { userId: 3, articles: ["six", "seven", "eight", "nine"] },
+      ];
+
+      const getData = async () => {
+        try {
+          const user = await getUser("john");
+          const articles = await getArticles(user.id);
+          console.log(articles);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getData();
+      getUser("susan")
+        .then((user) => getArticles(user.id))
+        .then((articles) => console.log(articles))
+        .catch((err) => console.log(err));
+
+      function getUser(name) {
+        return new Promise((resolve, reject) => {
+          const user = users.find((user) => user.name === name);
+
+          if (user) {
+            return resolve(user);
+          } else {
+            reject(`No such user with name : ${name}`);
+          }
+        });
+      }
+
+      function getArticles(userId) {
+        return new Promise((resolve, reject) => {
+          const userArticles = articles.find((user) => user.userId === userId);
+
+          if (userArticles) {
+            return resolve(userArticles.articles);
+          } else {
+            reject(`Wrong ID`);
+          }
+        });
+      }
+
+      //api fetch
+
+      async function getUsers() {
+        let url = "./users.json";
+        try {
+          let res = await fetch(url);
+          return await res.json();
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      async function renderUsers() {
+        let users = await getUsers();
+        let html = "";
+        users.forEach((user) => {
+          let htmlSegment = `<div class="user">
+                            <img src="${user.profileURL}" alt="dp" >
+                            <h2>${user.firstName} ${user.lastName}</h2>
+                            <div class="email"><a href="email:${user.email}">${user.email}</a></div>
+                        </div>`;
+
+          html += htmlSegment;
+        });
+
+        let container = document.querySelector(".container");
+        container.innerHTML = html;
+      }
+
+      renderUsers();
+
+      //promise3
+      function resolveAfter2Seconds() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve("resolved");
+          }, 2000);
+        });
+      }
+
+      const asyncCall = async () => {
+        console.log("calling");
+        const result = await resolveAfter2Seconds();
+        console.log(result);
+        // expected output: "resolved"
+      };
+
+      asyncCall();
+
+      // closures
+      function init() {
+        var name = "Mozilla"; // name is a local variable created by init
+        function displayName() {
+          // displayName() is the inner function, a closure
+          console.log(name); // use variable declared in the parent function
+        }
+        displayName();
+      }
+      init();
+    </script>
+  </body>
+</html>
