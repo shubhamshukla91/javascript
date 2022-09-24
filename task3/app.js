@@ -40,10 +40,10 @@ try {
         return (document.createElement(
           "div"
         ).innerHTML = `<div><h2 class="text-sm md:text-xl mb-4">City Name:${ele.name}</h2>
-               <h3 class="text-sm md:text-xl mb-4">Current Temperature:${ele.temp}</h3>
-               <h4 class="text-sm md:text-xl mb-4">Maximum Temperature:${ele.temp_max}</h4>
-               <h5 class="text-sm md:text-xl mb-4">Minimun Temperature: ${ele.temp_min}</h5>
-               <h6 class="text-sm md:text-xl mb-4">Feels like:${ele.feels_like}</h6></div>`);
+               <h3 class="text-sm md:text-xl mb-4">Current Temperature:${ele.temp} Kelvin</h3>
+               <h4 class="text-sm md:text-xl mb-4">Maximum Temperature:${ele.temp_max} Kelvin</h4>
+               <h5 class="text-sm md:text-xl mb-4">Minimun Temperature: ${ele.temp_min} Kelvin</h5>
+               <h6 class="text-sm md:text-xl mb-4">Feels like:${ele.feels_like} Kelvin</h6></div>`);
       });
       // container.innerHTML = display;
     });
