@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="max-w-lg m-auto text-center">
+      <form
+        class="bg-white shadow-md rounded px-2 pt-6 pb-8 mt-20"
+        name="myform"
+        method="get"
+        action="./login.html"
+      >
+        <p class="text-sm md:text-xl mb-2">Click to login to Dashboard</p>
+        <input
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-auto rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+          id="login"
+          onsubmit="login()"
+          value="Login"
+        />
+        <h1 class="md:text-3xl text-indigo-500 font-medium mb-4">
+          Today's weather
+        </h1>
+        <div id="details">
+          <!-- <h2 class="text-sm md:text-xl mb-4">City Name:</h2>
+          <h3 class="text-sm md:text-xl mb-4">Current Temperature:</h3>
+          <h4 class="text-sm md:text-xl mb-4">Maximum Temperature:</h4>
+          <h5 class="text-sm md:text-xl mb-4">Minimun Temperature</h5>
+          <h6 class="text-sm md:text-xl mb-4">Feels like:</h6> -->
+        </div>
+      </form>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
